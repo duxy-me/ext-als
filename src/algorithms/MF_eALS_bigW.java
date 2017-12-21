@@ -233,7 +233,7 @@ public class MF_eALS_bigW extends TopKRecommender {
 				L += weight(u, i) * Math.pow(predict(u, i) - trainMatrix.getValue(u, i), 2);
 			}
 		}
-		System.out.println("total = " + L);
+		//System.out.println("total = " + L);
 		return L;
 	}
 

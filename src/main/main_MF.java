@@ -22,7 +22,7 @@ public class main_MF extends main {
 		double alpha = 0.75;
 		int relate = 1;
 
-		// sample: java -jar extALS.jar yelp extALS w0 1 1 64 500 0.01 0 relates
+		// sample: java -jar extALS.jar yelp extALS w0 false true 64 500 0.01 0 relates
 		if (argv.length > 0) {
 			dataset_name = argv[0];
 			method = argv[1];
@@ -63,7 +63,7 @@ public class main_MF extends main {
 			evaluate_model(eals, "MF_extALS");
 		}
 
-		if (method.equalsIgnoreCase("eals_faster")) {
+		if (method.equalsIgnoreCase("eals_bigw")) {
 			System.out.println("training size: " + trainMatrix.size());
 			MF_eALS_bigW eals = new MF_eALS_bigW(trainMatrix, testRatings, topK, threadNum, factors, maxIter, w0, alpha,
 					reg, init_mean, init_stdev, showProgress, showLoss);

@@ -126,7 +126,7 @@ public class MF_eALS extends TopKRecommender {
 
 	public void buildModel() {
 		System.out.printf("user: %d, item: %d\n", userCount, itemCount);
-		// System.out.println("Run for FastALS. ");
+		// System.out.println("Run for eALS. ");
 		double loss_pre = Double.MAX_VALUE;
 		for (int iter = 0; iter < maxIter; iter++) {
 			Long start = System.currentTimeMillis();
@@ -135,18 +135,21 @@ public class MF_eALS extends TopKRecommender {
 			for (int u = 0; u < userCount; u++) {
 				update_user(u);
 			}
-
+			//System.out.println("done user");
 			// Update item latent vectors
 			for (int i = 0; i < itemCount; i++) {
 				update_item(i);
 			}
+			//System.out.println("done item");
 
 			// Show progress
 			if (showProgress)
 				showProgress(iter, start, testRatings);
 			// Show loss
+			//System.out.println("show loss " + showLoss);
 			if (showLoss)
 				loss_pre = showLoss(iter, start, loss_pre);
+			System.out.println("done iter");
 
 		} // end for iter
 	}
@@ -228,7 +231,7 @@ public class MF_eALS extends TopKRecommender {
 				L += W.get(u, i) * Math.pow(predict(u, i) - trainMatrix.getValue(u, i), 2);
 			}
 		}
-		System.out.println("total = " + L);
+		//System.out.println("total = " + L);
 		return L;
 	}
 
