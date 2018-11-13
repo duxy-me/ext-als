@@ -1,6 +1,6 @@
 # Fast Matrix Factorization with Non-Uniform Missing Data
 
-This is our official implementation for the paper:
+This is our official implementation for the paper [[url](https://arxiv.org/abs/1811.04411)]:
 > Xiangnan He, Jinhui Tang, Xiaoyu Du, Richang Hong, Tongwei Ren and Tat-Seng Chua, Fast Matrix Factorization with Non-Uniform Weights on Missing Data, TNNLS.
 
 It is an extended work of the SIGIR'16 paper "Fast Matrix Factorization for Online Recommendation with Implicit Feedback".
